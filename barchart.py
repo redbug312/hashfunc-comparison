@@ -3,16 +3,29 @@ import matplotlib.pyplot as plot
 import numpy
 
 def show_barchart(stat, length=20):
+    if isinstance(stat, list):
+        data = enumerate(stat)
+    elif isinstance(stat, dict):
+        data = stat
+
     y_max = max(max(stat), length)
-    for x, y in enumerate(stat):
+    for x, y in data:
         y_len = int(length * y / y_max)
         print('{:>3}: {}'.format(x, '*' * y_len))
     print('\nmax: {}, min: {}, avg: {:.2f}' \
           .format(max(stat), min(stat), sum(stat) / len(stat)))
 
-def show_barchart_gui(stat):
-    _, ax = plot.subplots()
-    ax.bar(numpy.arange(len(stat)), stat)
+def show_barchart_gui(stat, xlabel=False):
+    if isinstance(stat, list):
+        plot.bar(numpy.arange(len(stat)), stat)
+    elif isinstance(stat, dict):
+        data = sorted(stat.items(), key=lambda item: (-item[1], item[0]))
+        plot.bar(numpy.arange(len(stat)), [d[1] for d in data])
+        if xlabel:
+            plot.xticks(numpy.arange(len(stat)), [d[0] for d in data])
+        else:
+            plot.tick_params(labelbottom='off')
+
     plot.show()
 
 

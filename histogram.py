@@ -23,9 +23,8 @@ if __name__ == '__main__':
         sys.exit(1)
 
     result = json.load(sys.stdin)
-    height = [len(bucket) for bucket in result]
 
     if '-g' in options:
-        show_histogram_gui(height)
+        show_histogram_gui(result)
     else:
-        show_histogram(height)
+        show_histogram(result)
