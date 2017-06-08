@@ -1,16 +1,12 @@
 #! /usr/bin/python3
 import matplotlib.pyplot as plot
 
-def show_histogram(stat, length=20):
-    y_max = max(max(stat), length)
-    for x, y in enumerate(stat):
-        y_len = int(length * y / y_max)
-        print('{:>3}: {}'.format(x, '*' * y_len))
-    print('\nmax: {}, min: {}, avg: {:.2f}' \
-          .format(max(stat), min(stat), sum(stat) / len(stat)))
+def show_histogram(stat):
+    print('Not implemented yet, turned to pyplot ver.')
+    show_histogram_gui(stat)
 
 def show_histogram_gui(stat):
-    plot.hist(stat, bins=range(min(stat), max(stat)))
+    plot.hist(stat)
     plot.show()
 
 
