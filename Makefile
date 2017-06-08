@@ -1,7 +1,7 @@
 tilechart:
-	cat data/core7000.dict | ./hashfunc.py | ./tilechart.py
+	cat data/studentID | ./hashfunc.py | ./tilechart.py
 
-barchart:
-	cat data/core7000.dict | ./hashfunc.py | ./barchart.py
+histogram:
+	cat data/studentID | ./hashfunc.py | ./histogram.py -g
 
 execute: tilechart
