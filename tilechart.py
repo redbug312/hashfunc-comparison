@@ -10,7 +10,7 @@ def nearest_sqrt(xx):
     if x ** 2 >= xx:
         return (x, x)
     elif x ** 2 + x >= xx:
-        return (x, x+1)
+        return (x+1, x)
     else:
         return (x+1, x+1)
 
@@ -26,7 +26,7 @@ def show_tilechart(stat):
 def show_tilechart_gui(stat):
     # cmap: https://matplotlib.org/examples/color/colormaps_reference.html
     _, ax = plot.subplots()
-    ax.imshow(stat, cmap='Greys', interpolation='nearest')
+    ax.imshow(stat, cmap='Greys', vmin=0, vmax=numpy.amax(stat), interpolation='nearest')
     plot.show()
 
 
