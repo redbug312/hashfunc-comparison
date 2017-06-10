@@ -5,10 +5,10 @@ This is a part of project for 2017 NTU CSIE Probability lecture.
 ## How to use
 In your terminal:
 ```
-$ cat data/core7000.dict | ./hashfunc.py | ./tilechart.py
+$ ./hashfunc.py -f data/studentID | ./tilechart.py
 ```
 
-And it will show the distribution of djb2 hashing result from every line in the file `core7000.dict`
+And it will show the distribution of djb2 hashing result from every line in the file `studentID`
 
 ## Environments
 * Python3 with numpy, matplotpy installed
