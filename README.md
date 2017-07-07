@@ -23,10 +23,10 @@ $ ./hashfunc.py --hash xor8 --size 64 --regroup data/studentID | ./tilechart.py 
 $ ./hashfunc.py --hash xor8 --size 64 --regroup --hist-eq=0,6 data/studentID | ./tilechart.py -g
 ```
 
-Notice that the data is slightly transforned due to privacy, thus the result would behaves different from the slide above. But there’s the same effect on each optimization.
+Notice that the data is slightly transformed due to privacy, thus the result would be different from the slide above. But there’s same effect on each optimization.
 
 ## Structure
-The program can also be used to analyze other hash functions. `hashfunc.py` will read lines in file given as first argument, printing out a hashtable. `barchart.py` and `tilechart.py` will read the hashtable and show the responding chart.
+This program can also be used to analyze other hash functions. `hashfunc.py` will read lines in file given as first argument, printing out a hashtable. `barchart.py` and `tilechart.py` will read the hashtable and show the responding chart.
 
 1. Options in `hashfunc.py`
     * `-h`, `--hash`: specify the hash function, **sum8, xor8, djb2** is implemented
@@ -36,8 +36,6 @@ The program can also be used to analyze other hash functions. `hashfunc.py` will
 2. Options in `barchart.py`, `tilechart.py`
     * `-g`: specify using pyplot to show the chart, instead of terminal
 
-And it will show the distribution of djb2 hashing result from every line in the file `studentID`
-
 ## Environments
 * Python3 with numpy, matplotpy installed
 
@@ -45,4 +43,4 @@ And it will show the distribution of djb2 hashing result from every line in the 
 * [HASHING](https://www.csie.ntu.edu.tw/~hsinmu/courses/_media/dsa_12spring/hashing.pdf)
 * [Which hashing algorithm is best for uniqueness and speed?](https://softwareengineering.stackexchange.com/questions/49550/which-hashing-algorithm-is-best-for-uniqueness-and-speed) | StackExchange
 * [Gaussian Distribution + Hash Tables](https://stackoverflow.com/questions/4324490/gaussian-distribution-hash-tables?rq=1) | StackOverflow
-* [Why are 5381 and 33 so important in the djb2 algorithm?](https://stackoverflow.com/questions/1579721/why-are-5381-and-33-so-important-in-the-djb2-algorithm)
+* [Why are 5381 and 33 so important in the djb2 algorithm?](https://stackoverflow.com/questions/1579721/why-are-5381-and-33-so-important-in-the-djb2-algorithm) | StackOverflow
