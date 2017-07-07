@@ -1,4 +1,8 @@
 #! /usr/bin/python3
+""" It read the transformed data outputed from hashfunc.py to generate barcharts
+
+"""
+
 import matplotlib.pyplot as plot
 import numpy
 
@@ -26,7 +30,9 @@ def show_barchart_gui(stat, xlabel=False):
         else:
             plot.tick_params(labelbottom='off')
 
+    plot.tight_layout(pad=0.8)
     plot.show()
+    return plot
 
 
 if __name__ == '__main__':
@@ -43,6 +49,7 @@ if __name__ == '__main__':
 
     result = json.load(sys.stdin)
     height = [len(bucket) for bucket in result]
+    print("The standard deviation is {:.2f}".format(numpy.std(height)))
 
     if '-g' in options:
         show_barchart_gui(height)

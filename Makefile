@@ -1,7 +1,7 @@
 tilechart:
-	cat data/studentID | ./hashfunc.py | ./tilechart.py -g
+	./hashfunc.py data/studentID | ./tilechart.py -g
 
 barchart:
-	cat data/studentID | ./hashfunc.py | ./barchart.py -g
+	./hashfunc.py data/studentID | ./barchart.py -g
 
 execute: barchart
