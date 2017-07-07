@@ -1,5 +1,5 @@
 #! /usr/bin/python3
-""" Hash every inputed lines to generate a hashtable
+""" It hashes every inputed lines to generate a hashtable
 """
 
 from operator import add, xor

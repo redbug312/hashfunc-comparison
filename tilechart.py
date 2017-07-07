@@ -1,4 +1,7 @@
 #! /usr/bin/python3
+""" It reads the transformed data outputed from hashfunc.py to show tilecharts
+"""
+
 from math import floor, sqrt
 from functools import reduce
 from operator import mul
@@ -6,6 +9,12 @@ import matplotlib.pyplot as plot
 import numpy
 
 def nearest_sqrt(xx):
+    """ Find a near-square size for tilechart
+    Args:
+        area as `int`
+    Returns:
+        length and width as `(int, int)`
+    """
     x = floor(sqrt(xx))
     if x ** 2 >= xx:
         return (x, x)
@@ -15,6 +24,10 @@ def nearest_sqrt(xx):
         return (x+1, x+1)
 
 def show_tilechart(stat):
+    """ Show the tilechart in terminal
+    Args:
+        stat of chain lengths in hashtable as `[int]`
+    """
     mean = numpy.mean(stat)
     pattern = '□■'
 
@@ -24,6 +37,10 @@ def show_tilechart(stat):
         print() # newline
 
 def show_tilechart_gui(stat):
+    """ Show the barchart by pyplot
+    Args:
+        stat of chain lengths in hashtable as `[int]`
+    """
     # cmap: https://matplotlib.org/examples/color/colormaps_reference.html
     _, ax = plot.subplots()
     ax.imshow(stat, cmap='Greys', vmin=0, vmax=numpy.amax(stat), interpolation='nearest')

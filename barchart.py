@@ -1,12 +1,16 @@
 #! /usr/bin/python3
-""" It read the transformed data outputed from hashfunc.py to generate barcharts
-
+""" It reads the transformed data outputed from hashfunc.py to show barcharts
 """
 
 import matplotlib.pyplot as plot
 import numpy
 
 def show_barchart(stat, length=20):
+    """ Show the barchart in terminal
+    Args:
+        stat of chain lengths in hashtable as `[int]`
+        maximum length of bars in barchart
+    """
     if isinstance(stat, list):
         data = enumerate(stat)
     elif isinstance(stat, dict):
@@ -19,16 +23,17 @@ def show_barchart(stat, length=20):
     print('\nmax: {}, min: {}, avg: {:.2f}' \
           .format(max(stat), min(stat), sum(stat) / len(stat)))
 
-def show_barchart_gui(stat, xlabel=False):
+def show_barchart_gui(stat):
+    """ Show the barchart by pyplot
+    Args:
+        stat of chain lengths in hashtable as `[int]`
+    """
     if isinstance(stat, list):
         plot.bar(numpy.arange(len(stat)), stat)
     elif isinstance(stat, dict):
         data = sorted(stat.items(), key=lambda item: (-item[1], item[0]))
         plot.bar(numpy.arange(len(stat)), [d[1] for d in data])
-        if xlabel:
-            plot.xticks(numpy.arange(len(stat)), [d[0] for d in data])
-        else:
-            plot.tick_params(labelbottom='off')
+        plot.tick_params(labelbottom='off')
 
     plot.tight_layout(pad=0.8)
     plot.show()
